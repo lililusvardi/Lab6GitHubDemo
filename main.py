@@ -13,16 +13,23 @@ def encode(password):
         num = int(index) + 3
         result += str(num)
     return result
+def decode(encoded):
+    result = ""
+    for index in encoded:
+        num = int(index) - 3
+        result += str(num)
+    return result
 keepRunning = True
+
 while keepRunning:
     main_menu()
-    choice = input("Please enter an option: ")
+    choice = int(input("Please enter an option:"))
     if choice == 1:
         password = input("Please enter your password to encode:")
         encoded = encode(password)
-        print("Your password has been encoded and stored\n")
-        main_menu()
+        print("Your password has been encoded and stored!\n")
     if choice == 2:
-        
+        decoded = decode(encoded)
+        print(f"The encoded password is {encoded}, and the original password is {decoded}.\n")
     if choice == 3:
         break
